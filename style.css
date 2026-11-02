@@ -1,0 +1,393 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #60464b;
+    background: linear-gradient(135deg, #fff0e6, #fce4ec, #fff8e7);
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.screen {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 16px;
+}
+
+/* Welcome Page */
+
+.welcome-card,
+.wishes-card,
+.message-card {
+    width: min(750px, 95%);
+    padding: 40px 25px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 25px;
+    box-shadow: 0 12px 40px rgba(120, 70, 70, 0.13);
+    animation: appear 1s ease;
+}
+
+.welcome-card h1 {
+    color: #a65d68;
+    font-size: clamp(30px, 6vw, 43px);
+    margin-bottom: 20px;
+}
+
+.welcome-card p {
+    font-size: 19px;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 55px;
+}
+
+.buttons button {
+    border: none;
+    border-radius: 30px;
+    padding: 13px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s;
+}
+
+#yesBtn {
+    background: #d7798a;
+    color: white;
+}
+
+#yesBtn:hover {
+    background: #b95870;
+    transform: scale(1.06);
+}
+
+#noBtn {
+    background: #f4dce1;
+    color: #805d62;
+}
+
+/* Birthday Wishes Page */
+
+.wishes-card {
+    width: min(800px, 95%);
+}
+
+#wishLines {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+}
+
+.wish-line {
+    display: flex;
+    align-items: baseline;
+    font-size: clamp(16px, 3vw, 20px);
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: lineAppear 0.8s ease forwards;
+}
+
+/* First letter - different colour */
+
+.wish-first-letter {
+    display: inline-block;
+    flex-shrink: 0;
+    color: #bd6177;
+    font-size: 27px;
+    font-weight: bold;
+    transition: color 0.4s, text-shadow 0.4s, transform 0.4s;
+}
+
+/* Rest of the sentence - normal colour */
+
+.wish-sentence {
+    color: #60464b;
+}
+
+/* Highlight first letters */
+
+.wish-first-letter.letter-highlight {
+    color: #e7a34d;
+    text-shadow: 0 0 12px rgba(231, 163, 77, 0.8);
+    transform: scale(1.25);
+}
+
+/* Happy Birthday heading */
+
+#birthdayHeading {
+    color: #a65d68;
+    font-size: clamp(28px, 5vw, 36px);
+    text-align: center;
+    margin-top: 30px;
+    letter-spacing: 2px;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+}
+
+#birthdayHeading.heading-visible {
+    opacity: 1;
+}
+
+/* YOGESH destination */
+
+#nameLetters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 55px;
+    margin: 20px auto 0;
+}
+
+#nameLetters span {
+    display: inline-block;
+    color: #bd6177;
+    font-size: 36px;
+    font-weight: bold;
+    opacity: 0;
+}
+
+#nameLetters span.name-letter-visible {
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+/* Moving letters */
+
+.flying-letter {
+    position: fixed;
+    z-index: 9999;
+    display: inline-block;
+    color: #e7a34d;
+    font-size: 27px;
+    font-weight: bold;
+    text-shadow: 0 0 12px rgba(231, 163, 77, 0.7);
+    pointer-events: none;
+    margin: 0;
+}
+
+/* Photo Slides */
+
+#photos {
+    flex-direction: column;
+    gap: 20px;
+}
+
+.photo-slide {
+    width: min(650px, 95%);
+    text-align: center;
+    animation: appear 1s ease;
+}
+
+.photo-frame {
+    width: 100%;
+    height: min(65vh, 520px);
+    min-height: 250px;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 35px rgba(100, 65, 65, 0.2);
+}
+
+.photo-frame img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 14px;
+}
+
+/* First Photo - Sunshine */
+
+.sunshine {
+    animation: sunshineGlow 3s ease-in-out infinite alternate;
+}
+
+.sunshine::after,
+.dreamy::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        120deg,
+        transparent 25%,
+        rgba(255, 220, 140, 0.3),
+        transparent 75%
+    );
+    animation: sunlight 4s linear infinite;
+}
+
+/* Second Photo - Puzzle */
+
+.puzzle-frame img {
+    opacity: 0;
+}
+
+#puzzleCanvas {
+    position: absolute;
+    inset: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    z-index: 2;
+}
+
+/* Third Photo - Dreamy Sunshine */
+
+.dreamy {
+    animation: dreamyGlow 3s ease-in-out infinite alternate;
+}
+
+.dreamy::after {
+    background: linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(255, 240, 200, 0.3),
+        transparent 75%
+    );
+}
+
+/* Photo Captions */
+
+.caption {
+    margin-top: 22px;
+    color: #985967;
+    font-size: clamp(17px, 3vw, 21px);
+    line-height: 1.6;
+}
+
+/* Final Birthday Message */
+
+#finalMessage {
+    align-items: flex-start;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.message-card {
+    text-align: left;
+    padding: 35px 30px;
+}
+
+.message-card h2 {
+    text-align: center;
+    color: #a65d68;
+    font-size: clamp(25px, 5vw, 34px);
+    margin-bottom: 28px;
+}
+
+.message-card p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 17px;
+}
+
+.message-card .signature {
+    text-align: right;
+    color: #a65d68;
+}
+
+/* Animations */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lineAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes sunshineGlow {
+    from {
+        box-shadow: 0 10px 30px rgba(255, 190, 90, 0.2);
+    }
+    to {
+        box-shadow: 0 10px 45px rgba(255, 175, 65, 0.55);
+    }
+}
+
+@keyframes dreamyGlow {
+    from {
+        box-shadow: 0 10px 30px rgba(255, 210, 170, 0.2);
+    }
+    to {
+        box-shadow: 0 10px 45px rgba(255, 205, 155, 0.55);
+    }
+}
+
+@keyframes sunlight {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* Mobile Screen */
+
+@media (max-width: 600px) {
+    .welcome-card,
+    .wishes-card {
+        padding: 32px 18px;
+    }
+
+    #nameLetters {
+        gap: 8px;
+    }
+
+    #nameLetters span {
+        font-size: 29px;
+    }
+
+    .photo-frame {
+        height: 55vh;
+    }
+
+    .message-card {
+        padding: 28px 20px;
+    }
+
+    .message-card p {
+        font-size: 16px;
+    }
+}

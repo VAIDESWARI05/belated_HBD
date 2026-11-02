@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday 🤍</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="music" src="love_bug_remo.mp3" loop></audio>
+
+    <!-- Welcome Page -->
+    <section id="welcome" class="screen">
+        <div class="welcome-card">
+            <h1>Happy Birthday to you 🤍</h1>
+            <p>Would you like to see the wishes?</p>
+
+            <div class="buttons">
+                <button id="yesBtn">YES ❤️</button>
+                <button id="noBtn">NO </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Birthday Wishes Page -->
+    <section id="wishes" class="screen hidden">
+        <div class="wishes-card">
+
+            <div id="wishLines"></div>
+
+            <h2 id="birthdayHeading">HAPPY BIRTHDAY! 🤍</h2>
+
+            <div id="nameLetters"></div>
+
+        </div>
+    </section>
+
+    <!-- Photo Page -->
+    <section id="photos" class="screen hidden">
+
+        <div id="photoOne" class="photo-slide hidden">
+            <div class="photo-frame sunshine">
+                <img src="yoki1.jpeg" alt="First birthday photo">
+            </div>
+            <p class="caption">
+                Just like the sun shines every day, may your life shine
+                brighter with beautiful dreams and endless happiness. ☀️
+            </p>
+        </div>
+
+        <div id="photoTwo" class="photo-slide hidden">
+            <div class="photo-frame puzzle-frame">
+                <img id="puzzleImage" src="yoki2.jpeg" alt="Second birthday photo">
+                <canvas id="puzzleCanvas"></canvas>
+            </div>
+            <p class="caption">
+                Never stop smiling. Your cute smile makes even ordinary
+                moments special. ❤️
+            </p>
+        </div>
+
+        <div id="photoThree" class="photo-slide hidden">
+            <div class="photo-frame dreamy">
+                <img src="yoki3.jpeg" alt="Third birthday photo">
+            </div>
+            <p class="caption">
+                May you reach greater heights, achieve your biggest dreams
+                and always shine in everything you do. 🌟
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Final Birthday Message -->
+    <section id="finalMessage" class="screen hidden">
+        <div class="message-card">
+
+            <h2>Happiest Belated Birthday! 🤍</h2>
+
+            <p>First of all, I'm really happy to have you in my life as one of my best friends.</p>
+
+            <p>Even though we sometimes don't talk for days, whenever we do, you still talk to me with the same warmth. And honestly, that always makes me happy.</p>
+
+            <p>Even though we've never met in person, talking to you has always felt so natural. I feel comfortable being myself, sharing little things and laughing with you. I'm really grateful for that.</p>
+
+            <p>I hope you never lose that cute smile of yours. Keep smiling, keep believing in yourself and never let difficult days make you forget how capable you are.</p>
+
+            <p>May you achieve every dream you've been working for. I hope you reach great heights, find success in everything you do and get many beautiful opportunities in life.</p>
+
+            <p>Life may not always go as planned, but I hope you have the strength to face every challenge and the patience to wait for better days. You deserve happiness, peace and all the good things coming your way.</p>
+
+            <p>Thank you for being such a lovely friend. No matter how busy life gets or how long our conversations pause, I hope our friendship always stays special.</p>
+
+            <p>Take care, keep shining and have an amazing year ahead. ❤️</p>
+
+            <p class="signature">With lots of good wishes 🤍</p>
+
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
